@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-sm navbar-custom header">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" routerLink="/profile" routerLinkActive="active">UBCP</a>
+    
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/postrides" routerLinkActive="active">Post Rides</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/searchrides" routerLinkActive="active">Search Rides</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/view" routerLinkActive="active">Rides by Me</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/report" routerLinkActive="active">Report</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="/feedback" routerLinkActive="active">Feedback</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/profile" routerLinkActive="active">{{id}}</a>
+      </li>
+    </ul>
+  </nav>  
+
+<div class="row">
+  <div class="col-3">
+  </div>
+  <div class="col-6" class="reg">
+    
+     <div *ngFor="let element of details">
+      
+      <h4>Ride from {{element.start}} to {{element.end}} on {{element.date|date:'fullDate'}}</h4>
+      <p>Ride can be offered for {{element.vacancy}} people and expected time of departure is {{element.time}}</p>
+      <p>The pickup point is {{element.sl}} and dropoof point is {{element.el}} </p>
+      <p>Time flexibility(Y/N):{{element.flex}}</p>
+      <p>Charge per person:{{element.charge| currency:'USD':true:'1.1-2'}}</p>
+
+    <br>
+    <button class="btn btn-danger" (click)="delete(element.id)" >Delete Ride</button>
+    <br>
+    </div> 
+
+  </div>
+  <div class="col-3">
+  </div>
+</div>

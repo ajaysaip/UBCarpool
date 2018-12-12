@@ -1,0 +1,73 @@
+
+<div class="jumbotron jumbotron-fluid" class="header">
+    <div class="container">
+      <h1>UB CarPool</h1> 
+      <h2>The Green Commute Revolution</h2> 
+    </div>
+  </div>
+<div class="row">
+<div class="col-4"></div>
+<div class="col-4">
+<div class="reg">
+    <h3>REGISTER</h3>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+      <div class="form-group" >
+        <label for="firstName">First Name:</label>
+        <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" required>
+                        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                        </div>
+      </div>
+      <div class="form-group" >
+        <label for="lastName">Last Name:</label>
+        <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" required>
+                        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                        </div>
+      </div>
+      
+      
+              <div class="form-group" >
+            
+            <label for="mobile">Mobile:</label>
+            <input type="text" class="form-control" formControlName="mobile" [ngClass]="{'is-invalid':submitted && f.mobile.errors}" required>
+                <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                  <div *ngIf="f.mobile.errors.required">Mobile number required</div> 
+                  <div *ngIf="f.mobile.errors.pattern">Mobile number must be valid</div>
+                </div>
+          </div>
+      <div class="form-group" >
+        <p>Please use your .edu email</p>
+        <label for="email">Email:</label>
+        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required>
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                            <div *ngIf="f.email.errors.pattern">Email must be a .edu email address</div>
+                        </div>
+      </div>
+      <div class="form-group" >
+        <label for="pwd">Password:</label>
+        <input type="password" formControlName="pwd" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pwd.errors }" required>
+                        <div *ngIf="submitted && f.pwd.errors" class="invalid-feedback">
+                            <div *ngIf="f.pwd.errors.required">pwd is required</div>
+                            <div *ngIf="f.pwd.errors.minlength">pwd min length is 6 characters</div>
+                        </div>
+      </div>
+      <div class="form-group" >
+        <label for="cnfpwd">Confirm Password:</label>
+        <input type="password" formControlName="cnfpwd" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cnfpwd.errors }" required>
+        <div *ngIf="submitted && f.cnfpwd.errors " class="invalid-feedback">
+            <div *ngIf="f.cnfpwd.errors.required">pwd is required</div>
+            <div *ngIf="f.notSame">pwd must match</div>
+        </div>
+                        
+      </div>
+      <br>
+      <div >
+          <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+    </form>
+    </div>
+  </div>
+  <div class="col-4"></div>
+</div>

@@ -1,0 +1,110 @@
+<nav class="navbar navbar-expand-sm navbar-custom header">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" routerLink="/profile" routerLinkActive="active">UBCP</a>
+    
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/postrides" routerLinkActive="active">Post Rides</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/searchrides" routerLinkActive="active">Search Rides</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/view" routerLinkActive="active">Rides by Me</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/report" routerLinkActive="active">Report</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="/feedback" routerLinkActive="active">Feedback</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/profile" routerLinkActive="active">{{id}}</a>
+      </li>
+    </ul>
+  </nav> 
+
+<div class="row">
+    <div class="col-3"></div>
+<div class="col-6">
+  <form [formGroup]="postrideForm" >
+    <div class="form-group" >
+      <label for="source">Departure City:</label>
+      <input type="text" class="form-control" formControlName="source" [ngClass]="{ 'is-invalid': submitted && f.source.errors }">
+      <div *ngIf="submitted && f.source.errors" class="invalid-feedback">
+        <div *ngIf="f.source.errors.required">Source is required</div>
+        <div *ngIf="f.source.errors.pattern">Characters only</div>
+      </div>
+    </div>
+    <div class="form-group" >
+      <label for="destination">Arrival City:</label>
+      <input type="text" class="form-control" formControlName="destination" [ngClass]="{ 'is-invalid': submitted && f.destination.errors }">
+      <div *ngIf="submitted && f.destination.errors" class="invalid-feedback">
+        <div *ngIf="f.destination.errors.required">Destination is required</div>
+        <div *ngIf="f.destination.errors.pattern">Characters only</div>
+      </div>
+    </div>
+    <div class="form-group" >
+      <label for="vacancy">No. of Vacancies:</label>
+      <input type="text" class="form-control" formControlName="vacancy" [ngClass]="{ 'is-invalid': submitted && f.vacancy.errors }">
+      <div *ngIf="submitted && f.vacancy.errors" class="invalid-feedback">
+        <div *ngIf="f.vacancy.errors.required">Vacancies must be specified</div>
+        <div *ngIf="f.vacancy.errors.pattern">Vacancies are limited to 9</div>
+      </div>
+    </div>
+    <div class="form-group" >
+        <label for="date">Date of Travel:</label>
+        <input type="date" class="form-control" formControlName="date" [ngClass]="{ 'is-invalid': submitted && f.date.errors }">
+        <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+          <div *ngIf="f.date.errors.required">Date is required</div>
+        </div>
+    </div>
+    <div class="form-group" >
+      <label for="time">Time of Travel:</label>
+      <input type="time" class="form-control" formControlName="time" [ngClass]="{ 'is-invalid': submitted && f.time.errors }">
+      <div *ngIf="submitted && f.time.errors" class="invalid-feedback">
+        <div *ngIf="f.time.errors.required">Time is required</div>
+      </div>
+  </div>
+  <div class="form-group" >
+    <label for="sflex">Flexibile Time:(Y/N)</label>
+    <input type="text" class="form-control" formControlName="sflex" [ngClass]="{ 'is-invalid': submitted && f.sflex.errors }">
+    <div *ngIf="submitted && f.sflex.errors" class="invalid-feedback">
+      <div *ngIf="f.sflex.errors.required">Flexible or not</div>
+      <div *ngIf="f.sflex.errors.pattern">Enter Y or N</div>
+    </div>
+  </div>
+    <div class="form-group" >
+      
+      <label for="sp">Starting Point:</label>
+      <input type="text" class="form-control" formControlName="sp" [ngClass]="{ 'is-invalid': submitted && f.sp.errors }">
+      <div *ngIf="submitted && f.sp.errors" class="invalid-feedback">
+        <div *ngIf="f.sp.errors.required">Start Point is required</div>
+        <div *ngIf="f.sp.errors.pattern">Alphanumerals only</div>
+      </div>
+    </div>
+    <div class="form-group" >
+      <label for="ep">End Point:</label>
+      <input type="text" class="form-control" formControlName="ep" [ngClass]="{ 'is-invalid': submitted && f.ep.errors }">
+      <div *ngIf="submitted && f.ep.errors" class="invalid-feedback">
+        <div *ngIf="f.ep.errors.required">End Point is required</div>
+        <div *ngIf="f.ep.errors.pattern">Alphanumerals only</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="fee">Charge per person:</label>
+      <input type="text" class="form-control" formControlName="fee" [ngClass]="{ 'is-invalid': submitted && f.fee.errors }">
+      <div *ngIf="submitted && f.fee.errors" class="invalid-feedback">
+        <div *ngIf="f.fee.errors.required">Charge must be specified</div>
+        <div *ngIf="f.fee.errors.pattern">only amount no symbols</div>
+      </div>
+    </div>
+    <br>
+    <div >
+    <button type="button" (click)="onSubmit()" class="btn btn-primary col-6">Post Ride</button>
+  </div>
+  </form>
+  </div>
+  <div class="col-3"></div>
+</div>

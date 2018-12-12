@@ -1,0 +1,27 @@
+<div class="jumbotron jumbotron-fluid" class="header">
+    <div class="container">
+      <h1>UB CarPool</h1> 
+      <h2>The Green Commute Revolution</h2> 
+    </div>
+  </div>
+  <div class="row">
+<div class="col-3"></div>
+<div class="col-6">
+    <div class="reg">
+      <br><br><br>
+        <h3>Reset your Password</h3>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+          <div class="form-group" >
+            <label for="email">Email:</label>
+            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required>
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">Email is required</div>
+                                <div *ngIf="f.email.errors.pattern">Email must be a .edu email address</div>
+                            </div>
+          </div>
+          <div>
+              <button type="submit" class="btn btn-success">Get Code</button>
+          </div>
+        </form>
+        <div class="col-3"></div>
+        </div>

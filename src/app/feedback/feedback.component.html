@@ -1,0 +1,113 @@
+<nav class="navbar navbar-expand-sm navbar-custom header">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" routerLink="/profile" routerLinkActive="active">UBCP</a>
+    
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/postrides" routerLinkActive="active">Post Rides</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/searchrides" routerLinkActive="active">Search Rides</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/view" routerLinkActive="active">Rides by Me</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/report" routerLinkActive="active">Report</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="/feedback" routerLinkActive="active">Feedback</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/profile" routerLinkActive="active">{{id}}</a>
+      </li>
+    </ul>
+  </nav> 
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+      <div class="reg">
+        
+          
+          <h3>FEEDBACK FOR COMPLETED RIDES</h3>
+          <h5>AS DRIVER</h5>
+          
+          <div *ngFor="let element of driver">
+            
+            <h4>Ride from {{element.start}} to {{element.end}} on {{element.date}}</h4>
+            
+            <button class="btn btn-success" (click)="tripfeedback()" >Give Feedback</button>
+          <br>
+          <br>
+          <div *ngIf="show">
+              <form [formGroup]="feedbackForm" >
+                 <div class="form-group" >
+                  <label for="score">Score your partner out of 5:</label>
+                  <input type="text" formControlName="score" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.score.errors }" required>
+                                  <div *ngIf="submitted && f.score.errors" class="invalid-feedback">
+                                      <div *ngIf="f.score.errors.required">Score is required</div>
+                                      <div *ngIf="f.score.errors.pattern">score range is from 0 to 5</div>
+                                  </div>
+                </div>
+                <div class="form-group" >
+                  <label for="comment">Comments:</label>
+                  <textarea name="" id="" cols="30" rows="10" placeholder="only words and numbers" formControlName="comment" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.comment.errors }" >
+                      <div *ngIf="submitted && f.comment.errors" class="invalid-feedback">
+                          
+                          <div *ngIf="f.comment.errors.pattern">only words and numbers</div>
+                      </div>
+                    </textarea>
+                </div>
+                <div>
+                    <button type="button" (click)="onSubmit(element.id)" class="btn btn-success">Submit</button>
+                </div>
+              </form>
+              </div>
+          </div> 
+          <br>
+          <h5>AS RIDER</h5>
+          <div *ngFor="let element of rider">
+            
+            <h4>Ride from {{element.start}} to {{element.end}} on {{element.date}}</h4>
+            
+            <button class="btn btn-success" (click)="tripfeedback()" >Give Feedback</button>
+
+          <br>
+          <br>
+          <div *ngIf="show">
+              <form [formGroup]="feedbackForm" >
+                 <div class="form-group" >
+                  <label for="score">Score your partner out of 5:</label>
+                  <input type="text" formControlName="score" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.score.errors }" required>
+                                  <div *ngIf="submitted && f.score.errors" class="invalid-feedback">
+                                      <div *ngIf="f.score.errors.required">Score is required</div>
+                                      <div *ngIf="f.score.errors.pattern">score range is from 0 to 5</div>
+                                  </div>
+                </div>
+                <div class="form-group" >
+                  <label for="comment">Comments:</label>
+                  <textarea name="" id="" cols="30" rows="10" placeholder="only words and numbers" formControlName="comment" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.comment.errors }" >
+                      <div *ngIf="submitted && f.comment.errors" class="invalid-feedback">
+                          
+                          <div *ngIf="f.comment.errors.pattern">only words and numbers</div>
+                      </div>
+                    </textarea>
+                </div>
+                <div>
+                    <button type="button" (click)="onSubmit(element.id)" class="btn btn-success">Submit</button>
+                </div>
+              </form>
+              </div>
+          </div> 
+          <br><br><br>
+          
+
+
+
+          
+          </div>
+        </div>
+        
+          <div class="col-3"></div>
+        </div>

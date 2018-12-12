@@ -1,0 +1,34 @@
+
+<div class="signin">
+<h3>LOGIN</h3>
+<form form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+    <div class="form-group" >
+        <p>Please use your .edu email</p>
+        <label for="email">Email:</label>
+        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required>
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                            <div *ngIf="f.email.errors.pattern">Email must be a .edu email address</div>
+                        </div>
+      </div>
+      <div class="form-group" >
+          <label for="pwd">Password:</label>
+          <input type="password" formControlName="pwd" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pwd.errors }" required>
+                          <div *ngIf="submitted && f.pwd.errors" class="invalid-feedback">
+                              <div *ngIf="f.pwd.errors.required">pwd is required</div>
+                              <div *ngIf="f.pwd.errors.minlength">pwd min length is 6 characters</div>
+                          </div>
+        </div>
+  
+  <button type="submit" class="btn btn-primary">Login</button>
+  <br>
+  <br>
+  <a routerLink="/forgot" routerLinkActive="active">Forgot Password</a>
+  <br>
+  <br>
+  <p>or</p>
+  <br>
+  <p>Don't Have an Account</p>
+  <a routerLink="/register" routerLinkActive="active"><button type="submit" class="btn btn-primary">Register</button></a>
+</form>
+</div>

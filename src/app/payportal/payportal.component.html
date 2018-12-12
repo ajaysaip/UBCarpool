@@ -1,0 +1,29 @@
+
+
+
+
+<div class="jumbotron jumbotron-fluid" class="header">
+    <div class="container">
+      <h1>UB CarPool</h1> 
+      <h2>The Green Commute Revolution</h2> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+  <ngx-braintree
+  [clientTokenURL]="'./pay.php'"
+  [createPurchaseURL]="'./createpay.php'" 
+  [chargeAmount]="chargeAmount"
+  (paymentStatus)="onPaymentStatus($event)"
+  [currency]="'USD'"
+  [buttonText]="'Book'">
+
+  </ngx-braintree>
+  <pre>{{paymentResponse|json}}</pre>
+</div>
+<div class="col-3"></div>
+</div>
+  
+
+

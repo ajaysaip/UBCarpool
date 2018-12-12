@@ -1,0 +1,31 @@
+.header{
+    font-family: 'Audiowide', cursive;
+    
+    
+} 
+
+.reg{
+    font-family: 'K2D', sans-serif;
+    
+    
+}
+.card1{
+    background-color: #e2f110;
+}
+.navbar-custom {
+    background-color: #005bbb;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255,255,255,.8);
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: rgb(255, 255, 255);
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #111111;
+}

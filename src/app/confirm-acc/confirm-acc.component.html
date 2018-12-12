@@ -1,0 +1,27 @@
+<div class="jumbotron jumbotron-fluid" class="header">
+    <div class="container">
+      <h1>UB CarPool</h1> 
+      <h2>The Green Commute Revolution</h2> 
+    </div>
+  </div>
+  <div class="row">
+<div class="col-3"></div>
+<div class="col-6">
+    <div class="reg">
+      <br><br><br>
+        <h3>Confirm your Account</h3>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+          <div class="form-group" >
+            <label for="otp">CODE:</label>
+            <input type="text" formControlName="otp" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.otp.errors }" required>
+                            <div *ngIf="submitted && f.otp.errors" class="invalid-feedback">
+                                <div *ngIf="f.otp.errors.required">otp is required</div>
+                                <div *ngIf="f.notSame">Otp is wrong</div>
+                            </div>
+          </div>
+          <div>
+              <button type="submit" class="btn btn-success">Confirm</button>
+          </div>
+        </form>
+        <div class="col-3"></div>
+        </div>
